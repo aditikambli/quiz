@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Quiz</title>
+  </head>
+  <body>
+    <h1>JavaScript Quiz</h1>
+    <form id="quiz-form">
+      <h2>Question 1</h2>
+      <p>What is the capital of France?</p>
+      <label>
+        <input type="radio" name="q1" value="a">
+        London
+      </label><br>
+      <label>
+        <input type="radio" name="q1" value="b">
+        Paris
+      </label><br>
+      <label>
+        <input type="radio" name="q1" value="c">
+        Berlin
+      </label><br>
+      <label>
+        <input type="radio" name="q1" value="d">
+        Madrid
+      </label><br>
+
+      <h2>Question 2</h2>
+      <p>What is the largest planet in our solar system?</p>
+      <label>
+        <input type="radio" name="q2" value="a">
+        Mars
+      </label><br>
+      <label>
+        <input type="radio" name="q2" value="b">
+        Jupiter
+      </label><br>
+      <label>
+        <input type="radio" name="q2" value="c">
+        Saturn
+      </label><br>
+      <label>
+        <input type="radio" name="q2" value="d">
+        Venus
+      </label><br>
+
+      <h2>Question 3</h2>
+      <p>What is the tallest mountain in the world?</p>
+      <label>
+        <input type="radio" name="q3" value="a">
+        Mt. Everest
+      </label><br>
+      <label>
+        <input type="radio" name="q3" value="b">
+        Mt. Kilimanjaro
+      </label><br>
+      <label>
+        <input type="radio" name="q3" value="c">
+        Denali
+      </label><br>
+      <label>
+        <input type="radio" name="q3" value="d">
+        Mt. Fuji
+      </label><br>
+
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    <script src="quiz.js"></script>
+  </body>
+</html>
+// Define the quiz questions and answers
+const quiz = [
+  {
+    question: "What is the capital of France?",
+    answer: "b"
+  },
+  {
+    question: "What is the largest planet in our solar system?",
+    answer: "b"
+  },
+  {
+    question: "What is the tallest mountain in the world?",
+    answer: "a"
+  }
+];
+
+// Get the form element and add a submit event listener
+const quizForm = document.getElementById("quiz-form");
+quizForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Keep track of the user's score
+  let score = 0;
+
+  // Loop through each question and check the user's answer
+  for (let i = 0; i < quiz.length; i++) {
+    const question = quiz[i].question;
+    const answer = quiz[i].answer;
+
+    // Get the user's answer
+    const userAnswer = quizForm.elements["q" + (i+1)].value;
+
+    // Check if the user's answer is
